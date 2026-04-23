@@ -39,12 +39,15 @@
     /* ── AVATAR ── */
     .avatar {
       width: 88px; height: 88px; border-radius: 50%;
-      background: linear-gradient(135deg, #1e3a6e, #2563eb);
       border: 2px solid rgba(59,130,246,0.35);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem;
       margin-bottom: 20px;
       box-shadow: 0 0 32px rgba(59,130,246,0.2);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
     }
 
     /* ── NAME ── */
@@ -146,7 +149,7 @@
 <main>
 
   <!-- avatar -->
-  <div class="avatar">🧑‍💻</div>
+  <div class="avatar"><img src="pf.jpg" alt="Ari"></div>
 
   <!-- name -->
   <h1>Ari</h1>
