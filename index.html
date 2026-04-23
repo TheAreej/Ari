@@ -1,89 +1,227 @@
-<h1>TEST UPDATE 🔥</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ari</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #0a0a0f;
-  color: #e2e8f0;
-  text-align: center;
-}
+    body {
+      background: #0a0a0f;
+      color: #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-/* navbar */
-nav {
-  padding: 15px;
-  border-bottom: 1px solid #1f2937;
-}
-nav h1 {
-  color: #3b82f6;
-}
+    /* glow background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* sections */
-section {
-  padding: 40px 20px;
-}
+    main {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 420px;
+      padding: 60px 20px 80px;
+      display: flex; flex-direction: column; align-items: center;
+    }
 
-/* cards */
-.card {
-  background: #13131f;
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 300px;
-}
+    /* ── AVATAR ── */
+    .avatar {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a6e, #2563eb);
+      border: 2px solid rgba(59,130,246,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      box-shadow: 0 0 32px rgba(59,130,246,0.2);
+    }
 
-a {
-  color: #60a5fa;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-</style>
+    /* ── NAME ── */
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 800;
+      letter-spacing: -1px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    /* ── BADGES ── */
+    .badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      margin-bottom: 10px;
+    }
+    .badge {
+      padding: 4px 12px; border-radius: 20px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.28);
+      color: #60a5fa; font-size: 0.78rem; font-weight: 500;
+    }
+
+    /* ── BIO ── */
+    .bio {
+      color: #8892a4; font-size: 0.88rem; margin-bottom: 40px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.25), transparent);
+      margin-bottom: 32px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #3b82f6; margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    /* ── CARDS ── */
+    .cards { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+
+    .card {
+      width: 100%;
+      background: #13131f;
+      border: 1px solid rgba(59,130,246,0.14);
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none;
+      transition: border-color 0.25s, transform 0.25s, background 0.25s;
+      cursor: pointer;
+    }
+    .card:hover {
+      border-color: rgba(59,130,246,0.45);
+      background: rgba(59,130,246,0.06);
+      transform: translateY(-2px);
+    }
+
+    .card-left { display: flex; align-items: center; gap: 14px; }
+
+    .card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 0.9rem; color: #e2e8f0;
+      margin-bottom: 2px;
+    }
+    .card-handle { color: #60a5fa; font-size: 0.82rem; }
+    .card-copy { color: #e2e8f0; font-size: 0.82rem; }
+
+    .card-arrow { color: #3b5a8a; font-size: 0.9rem; transition: color 0.25s, transform 0.25s; }
+    .card:hover .card-arrow { color: #60a5fa; transform: translate(2px, -2px); }
+
+    /* discord card (no link) */
+    .card.no-link { cursor: default; }
+    .card.no-link:hover { transform: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      color: #2d3a4f; font-size: 0.75rem; margin-top: 20px;
+    }
+    footer span { color: #3b82f6; }
+  </style>
 </head>
-
 <body>
+<main>
 
-<nav>
+  <!-- avatar -->
+  <div class="avatar">🧑‍💻</div>
+
+  <!-- name -->
   <h1>Ari</h1>
-</nav>
 
-<!-- ABOUT -->
-<section>
-  <h2>About Me</h2>
-  <p>December 2003</p>
-  <p>Ethical Hacker </p>
-  <p>Full Stack Developer</p>
-  <p>Cyber Security Analyst</p>
-</section>
-
-<!-- SOCIALS -->
-<section>
-  <h2>My Accounts</h2>
-
-  <div class="card">
-    <h3>Instagram</h3>
-    <a href="#">@qvy.l</a>
+  <!-- badges -->
+  <div class="badges" style="margin-top:10px;">
+    <span class="badge">Ethical Hacker</span>
+    <span class="badge">Full Stack Dev</span>
+    <span class="badge">Cyber Security</span>
   </div>
 
-  <div class="card">
-    <h3>TikTok</h3>
-    <a href="#">@oh.8</a>
+  <!-- bio -->
+  <p class="bio" style="margin-top:10px;">Born December 2003 · Building things &amp; breaking things.</p>
+
+  <div class="divider"></div>
+
+  <!-- socials label -->
+  <div class="section-label">My Accounts</div>
+
+  <div class="cards">
+
+    <!-- Instagram -->
+    <a href="https://instagram.com/qvy.l" target="_blank" class="card">
+      <div class="card-left">
+        <div class="card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="12" cy="12" r="5" stroke="#60a5fa" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="#60a5fa"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">Instagram</div>
+          <div class="card-handle">@qvy.l</div>
+        </div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <!-- TikTok -->
+    <a href="https://tiktok.com/@oh.8" target="_blank" class="card">
+      <div class="card-left">
+        <div class="card-icon">
+          <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 1C11 1 11.5 4 15 4V7C15 7 12.5 7 11 5.5V12C11 15 8.5 17 6 17C3.5 17 1 15 1 12C1 9 3.5 7 6 7V10C4.5 10 4 11 4 12C4 13 5 14 6 14C7 14 8 13.5 8 12V1H11Z" stroke="#60a5fa" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">TikTok</div>
+          <div class="card-handle">@oh.8</div>
+        </div>
+      </div>
+      <div class="card-arrow">↗</div>
+    </a>
+
+    <!-- Discord -->
+    <div class="card no-link" onclick="navigator.clipboard.writeText('0ar1').then(()=>{ this.querySelector('.card-copy').textContent='Copied!'; setTimeout(()=>{ this.querySelector('.card-copy').textContent='0ar1'; },1500) })">
+      <div class="card-left">
+        <div class="card-icon">
+          <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.93 1.33A16.1 16.1 0 0013 0c-.17.3-.37.72-.5 1.04a15.1 15.1 0 00-4.5 0A11.3 11.3 0 007.48 0 16 16 0 003.56 1.34 17 17 0 00.08 11.96a16.4 16.4 0 005.01 2.54c.4-.56.77-1.15 1.08-1.77a10.5 10.5 0 01-1.7-.82l.42-.32a11.7 11.7 0 0010.22 0l.42.32c-.54.32-1.1.6-1.7.82.31.62.67 1.21 1.08 1.77a16.3 16.3 0 005.02-2.54A17 17 0 0016.93 1.33zM6.68 9.78c-.97 0-1.77-.9-1.77-2s.78-2 1.77-2c.98 0 1.8.9 1.77 2 0 1.1-.79 2-1.77 2zm6.54 0c-.97 0-1.77-.9-1.77-2s.78-2 1.77-2c.98 0 1.8.9 1.77 2 0 1.1-.78 2-1.77 2z" fill="#60a5fa"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-title">Discord</div>
+          <div class="card-copy">0ar1</div>
+        </div>
+      </div>
+      <div class="card-arrow" style="font-size:0.75rem;color:#3b5a8a;">copy</div>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>Discord</h3>
-    <p>0ar1</p>
-  </div>
+  <footer>made by <span>Ari</span> · 2025</footer>
 
-</section>
-
+</main>
 </body>
 </html>
